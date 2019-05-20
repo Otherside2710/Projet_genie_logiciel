@@ -1,10 +1,16 @@
+
+
 public class RechercheFilm {
 
     public RechercheFilm(String nomFichierSQLite){
 
+
     };
 
-    public void fermeBase(){
+    public void fermeBase(String nomFichierSQLite){
+
+        //nomFichierSQLite.close();
+
 
     };
 

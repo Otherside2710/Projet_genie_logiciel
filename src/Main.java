@@ -1,5 +1,8 @@
 import java.util.Scanner;
 import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Main {
 
@@ -10,6 +13,30 @@ public class Main {
         System.out.println("2) Rechercher un acteur");
         System.out.println("0) Quitter");
 
+       // RechercheFilm rechercheFilm = new RechercheFilm();
+        //rechercheFilm.RechercheFilm();
+
+        Connection conn = null;
+        try {
+            String url = "jdbc:sqlite:/home/alexis/Documents/projet_gl/bdfilm.sqlite";
+            conn = DriverManager.getConnection(url);
+
+            System.out.println("Connection à la base de données établie.");
+        }
+        catch (SQLException e )
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+            catch (SQLException ex){
+                System.out.println(ex.getMessage());
+            }
+        }
 
         Scanner scanner = new Scanner(System.in);
         String string = scanner.nextLine();
